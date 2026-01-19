@@ -15,7 +15,7 @@ echo "========================================="
 # Build the Docker image
 echo ""
 echo "==> Building Docker image..."
-docker build -t "${IMAGE_NAME}" -f Dockerfile .
+docker build --no-cache -t "${IMAGE_NAME}" -f Dockerfile .
 
 # Remove existing container if exists
 docker rm -f "${CONTAINER_NAME}" 2>/dev/null || true

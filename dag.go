@@ -1014,7 +1014,8 @@ func (d *DAG) ReduceTransitively() {
 
 	// populate the descendents cache for all roots (i.e. the whole graph)
 	for _, root := range d.getRoots() {
-		_ = d.getDescendants(root)
+		vHash := d.hashVertex(root)
+		_ = d.getDescendants(vHash)
 	}
 
 	// for each vertex
