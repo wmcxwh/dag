@@ -81,6 +81,13 @@ func (s *vertexStore) hasID(id string) bool {
 	return ok
 }
 
+func (s *vertexStore) hasHash(hash interface{}) bool {
+	s.mu.RLock()
+	_, ok := s.byHash[hash]
+	s.mu.RUnlock()
+	return ok
+}
+
 func (s *vertexStore) hashByID(id string) (interface{}, bool) {
 	v, ok := s.get(id)
 	if !ok {
